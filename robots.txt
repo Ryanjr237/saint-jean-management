@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ryanjr237.github.io/saint-jean-management/sitemap.xml
+Sitemap: https://saint-jean-management.netlify.app/sitemap.xml
