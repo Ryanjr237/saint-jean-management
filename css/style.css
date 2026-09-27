@@ -1683,6 +1683,64 @@ h2 em, h1 em{ color:var(--red-dark); }
   .mobile-bar a{ font-size:.8rem; gap:6px; }
 }
 
+
+/* ==========================================================================
+   Mobile « essentiel d'abord » : l'accroche visible, le détail à la demande,
+   aucun doublon — objectif ≈ 9 écrans pour l'accueil
+   ========================================================================== */
+.pp-more{ display:none; }
+@media (max-width:720px){
+  /* Fiches profil : accroche + prestige + action ; le détail se déplie */
+  .pp-sub{ display:none; }
+  .pp-head{ margin-bottom:12px; }
+  .persona-panel:not(.is-open) .pp-grid{ display:none; }
+  .pp-more{
+    display:flex; align-items:center; justify-content:space-between; width:100%;
+    font:inherit; font-size:.86rem; font-weight:500; color:rgba(255,255,255,.85);
+    background:none; border:0; border-top:1px solid rgba(255,255,255,.12);
+    min-height:48px; padding:0; cursor:pointer;
+  }
+  .pp-more svg{ width:16px; height:16px; transition:transform .35s var(--ease-out); }
+  .persona-panel.is-open .pp-more svg{ transform:rotate(180deg); }
+  .pp-foot{ border-top:0; padding-top:4px; }
+  .persona-title{ font-size:1.1rem; padding:26px 0 12px; }
+
+  /* Doublons retirés : le manifeste répète « L'Institut », les repères répètent les chiffres,
+     les citations ne sont pas de vrais témoignages */
+  .manifesto, .proof-strip, .section:has(.testimonial-carousel){ display:none; }
+
+  /* L'Institut : titre, preuves, photo — sans le long paragraphe */
+  .split > div > .lede{ display:none; }
+  .split-media .media-frame{ aspect-ratio:16/10; }
+  .split-media .badge-card{ display:none; }
+  .check-list{ margin:14px 0 22px; }
+  .check-list li{ padding:10px 0; font-size:.92rem; }
+
+  /* Atouts : carrousel glissable, texte court */
+  .section-head--split > .lede, .section-head.center > .lede{ display:none; }
+  .grid-3:has(> .feature-card){
+    display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none;
+    margin-inline:calc(var(--gutter) * -1); padding:4px var(--gutter) 10px; scroll-padding-inline:var(--gutter);
+  }
+  .grid-3:has(> .feature-card)::-webkit-scrollbar{ display:none; }
+  .grid-3 > .feature-card{ flex:0 0 82%; scroll-snap-align:start; }
+
+  /* Programmes et actualités : l'essentiel seulement */
+  .program-card p, .program-list{ display:none; }
+  .program-card-body{ padding:4px 22px 22px; }
+  .program-card h3{ margin-bottom:16px; }
+  .news-card p{ display:none; }
+  .news-card-body{ padding:18px 20px 20px; }
+  .news-card h3{ margin-bottom:14px; }
+
+  /* Écosystème : logos seuls */
+  .section:has(.logos-strip){ padding:48px 0; }
+  .section:has(.logos-strip) .section-head{ margin-bottom:20px; }
+
+  /* Bannière finale plus courte */
+  .cta-banner--xl p{ display:none; }
+  .cta-banner--xl h2{ margin-bottom:22px; }
+}
 /* ==========================================================================
    Accessibilité — respecte "réduire les animations" du système
    ========================================================================== */

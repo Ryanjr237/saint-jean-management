@@ -449,6 +449,20 @@ document.addEventListener('DOMContentLoaded', function () {
     if (focus) tab.focus();
     tab.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: reduceMotion ? 'auto' : 'smooth' });
   };
+  // Mobile : le détail de chaque fiche se déplie à la demande
+  document.querySelectorAll('.persona-panel').forEach(function (panel) {
+    var grid = panel.querySelector('.pp-grid');
+    var more = document.createElement('button');
+    more.type = 'button';
+    more.className = 'pp-more';
+    more.setAttribute('aria-expanded', 'false');
+    more.innerHTML = '<span>Programme, langues, démarches</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>';
+    grid.parentNode.insertBefore(more, grid);
+    more.addEventListener('click', function () {
+      var open = panel.classList.toggle('is-open');
+      more.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
   personaTabs.forEach(function (tab, i) {
     tab.addEventListener('click', function () { selectPersona(tab); });
     tab.addEventListener('keydown', function (e) {
