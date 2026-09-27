@@ -167,11 +167,10 @@
 
       <div class="contact-form-card" data-animate data-delay="1">
         <h2>Envoyer un message</h2>
-        <!--
-          Formulaire statique : à connecter à un service d'envoi (Formspree, backend PHP, etc.)
-          pour que les messages soient réellement transmis une fois le site déployé.
-        -->
-        <form id="contact-form" novalidate>
+        <!-- Envoi géré par Netlify Forms : les messages arrivent dans le tableau de bord Netlify (onglet Forms) -->
+        <form id="contact-form" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="visually-hidden" aria-hidden="true"><label>Ne pas remplir&nbsp;: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
           <div class="form-row">
             <div class="form-field">
               <label for="nom">Nom complet</label>
@@ -203,7 +202,7 @@
             <textarea id="message" name="message" rows="5" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Envoyer le message</button>
-          <p id="form-feedback" style="display:none;margin-top:16px;color:var(--navy-dark);font-weight:600">Merci&nbsp;! Votre message a bien été préparé — pensez à connecter ce formulaire à votre messagerie pour qu'il soit réellement envoyé.</p>
+          <p id="form-feedback" class="form-feedback" role="status" aria-live="polite" hidden></p>
         </form>
       </div>
 
@@ -275,22 +274,35 @@
 
 <script src="js/main.js"></script>
 <script>
+  // Envoi réel via Netlify Forms (sans rechargement de page)
   var form = document.getElementById('contact-form');
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (!form.reportValidity()) return;
       var submitBtn = form.querySelector('button[type="submit"]');
       var originalLabel = submitBtn.textContent;
       var feedback = document.getElementById('form-feedback');
-      feedback.style.display = 'none';
+      feedback.hidden = true;
+      feedback.classList.remove('is-error');
       submitBtn.disabled = true;
       submitBtn.textContent = 'Envoi…';
-      setTimeout(function () {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function (res) {
+        if (!res.ok) throw new Error(res.status);
+        feedback.textContent = 'Merci ! Votre message a bien été envoyé à l’équipe SJM. Nous vous répondrons rapidement.';
+        form.reset();
+      }).catch(function () {
+        feedback.textContent = 'L’envoi a échoué. Vérifiez votre connexion et réessayez, ou appelez-nous au +237 695 77 00 00.';
+        feedback.classList.add('is-error');
+      }).then(function () {
+        feedback.hidden = false;
         submitBtn.disabled = false;
         submitBtn.textContent = originalLabel;
-        feedback.style.display = 'block';
-        form.reset();
-      }, 900);
+      });
     });
   }
 </script>
