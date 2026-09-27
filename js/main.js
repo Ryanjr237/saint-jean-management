@@ -437,6 +437,26 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  // Aiguillage par profil : onglets accessibles (clic, flèches du clavier)
+  var personaTabs = Array.prototype.slice.call(document.querySelectorAll('.persona-tab'));
+  var selectPersona = function (tab, focus) {
+    personaTabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus();
+    tab.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: reduceMotion ? 'auto' : 'smooth' });
+  };
+  personaTabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { selectPersona(tab); });
+    tab.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (d) { e.preventDefault(); selectPersona(personaTabs[(i + d + personaTabs.length) % personaTabs.length], true); }
+    });
+  });
+
   // Onglets (écoles diplômantes / classes prépa)
   document.querySelectorAll('[data-tabs]').forEach(function (tabGroup) {
     var buttons = tabGroup.querySelectorAll('[data-tab-btn]');

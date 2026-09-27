@@ -180,31 +180,132 @@
     </div>
   </section>
 
-  <!-- ===================== AIGUILLAGE ===================== -->
+  <!-- ===================== AIGUILLAGE PAR PROFIL ===================== -->
   <section class="persona" aria-labelledby="persona-title">
     <div class="container">
-      <h2 id="persona-title" class="persona-title">Je suis…</h2>
-      <div class="persona-grid">
-        <a href="admissions.html#post-bac" class="persona-card">
-          <span class="persona-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></span>
-          <span class="persona-text"><strong>Bachelier·e</strong><span>Intégrer le Programme Grande École</span></span>
-          <svg class="persona-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a href="ecole.html#tutelles" class="persona-card">
-          <span class="persona-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4.5 8-11.8V5l-8-3-8 3v5.2C4 17.5 12 22 12 22Z"/><path d="m9 12 2 2 4-4"/></svg></span>
-          <span class="persona-text"><strong>Parent</strong><span>Une école reconnue par l'État</span></span>
-          <svg class="persona-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a href="admissions.html#parallele-l3" class="persona-card">
-          <span class="persona-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5M4 19h16M8 15l4-4 3 3 5-6"/></svg></span>
-          <span class="persona-text"><strong>Étudiant·e Bac+2 / Bac+3</strong><span>Admission parallèle en L3 ou M1</span></span>
-          <svg class="persona-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a href="programmes.html#executive" class="persona-card">
-          <span class="persona-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg></span>
-          <span class="persona-text"><strong>Professionnel·le</strong><span>Executive Master, MBA / MSc</span></span>
-          <svg class="persona-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
+      <h2 id="persona-title" class="persona-title">Votre place à SJM commence par une question</h2>
+      <div class="persona-tabs" role="tablist" aria-label="Votre profil">
+        <button class="persona-tab" role="tab" id="tab-bac" aria-controls="pp-bac" aria-selected="true">Nouveau bachelier&nbsp;?</button>
+        <button class="persona-tab" role="tab" id="tab-parent" aria-controls="pp-parent" aria-selected="false" tabindex="-1">Parent&nbsp;?</button>
+        <button class="persona-tab" role="tab" id="tab-bac2" aria-controls="pp-bac2" aria-selected="false" tabindex="-1">Déjà Bac+2 ou Bac+3&nbsp;?</button>
+        <button class="persona-tab" role="tab" id="tab-pro" aria-controls="pp-pro" aria-selected="false" tabindex="-1">Professionnel&nbsp;?</button>
+      </div>
+
+      <!-- Nouveau bachelier -->
+      <div class="persona-panel" role="tabpanel" id="pp-bac" aria-labelledby="tab-bac">
+        <div class="pp-head">
+          <p class="pp-hook">Votre Bac en poche, visez la <em>première Grande École</em> de Finance &amp; Management du Cameroun.</p>
+          <p class="pp-sub">Cinq ans pour passer du lycée au premier emploi&nbsp;: Licence / Bachelor, puis Master / MSc.</p>
+        </div>
+        <div class="pp-grid">
+          <div class="pp-block">
+            <h3>Ce qui vous attend</h3>
+            <ul class="pp-list">
+              <li>Finance, Management, Marketing &amp; Digital</li>
+              <li>Stages accompagnés à chaque cycle</li>
+              <li>Mobilité internationale dès la 4ᵉ année</li>
+              <li>Double diplôme avec des écoles partenaires</li>
+            </ul>
+          </div>
+          <div class="pp-block">
+            <h3>Francophone ou anglophone&nbsp;?</h3>
+            <p>Les deux. Admission avec le <strong>Baccalauréat</strong> ou le <strong>GCE Advanced Level</strong>, cursus en français et en anglais.</p>
+          </div>
+          <div class="pp-block">
+            <h3>Les démarches</h3>
+            <ol class="pp-steps"><li>Dossier</li><li>Écrits</li><li>Oral</li><li>Résultats</li></ol>
+          </div>
+        </div>
+        <div class="pp-foot">
+          <p class="pp-prestige"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m12 2 3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5l-5.3-5 7.2-.9L12 2Z"/></svg>Une admission sélective, jugée sur dossier, épreuves et oral devant un jury. Chaque place se mérite.</p>
+          <a href="admissions.html#post-bac" class="btn btn-primary btn-sm">Voir l'admission post-bac <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Parent -->
+      <div class="persona-panel" role="tabpanel" id="pp-parent" aria-labelledby="tab-parent" hidden>
+        <div class="pp-head">
+          <p class="pp-hook">Confiez l'avenir de votre enfant à une école <em>reconnue par l'État</em> et portée par 35 ans d'éducation.</p>
+          <p class="pp-sub">SJM est créée par arrêté du MINESUP (N°23-03128/L/MINESUP) et fait partie de l'IUSJC, fondé par les Frères de Saint Jean.</p>
+        </div>
+        <div class="pp-grid">
+          <div class="pp-block">
+            <h3>Ce qui vous rassure</h3>
+            <ul class="pp-list">
+              <li>Diplôme reconnu par l'État</li>
+              <li>Les Frères de Saint Jean, 35 ans d'enseignement</li>
+              <li>1 400 étudiants, 5 écoles, 3 campus (IUSJC, 2025)</li>
+            </ul>
+          </div>
+          <div class="pp-block">
+            <h3>Un encadrement jusqu'à l'emploi</h3>
+            <p>Le Service des Relations Entreprises et Stages suit chaque étudiant, du premier stage à l'insertion professionnelle.</p>
+          </div>
+          <div class="pp-block">
+            <h3>Ouvert sur le monde</h3>
+            <p>Partenaires en France (ESSCA, IESEG…), mobilité dès la 4ᵉ année, doubles diplômes.</p>
+          </div>
+        </div>
+        <div class="pp-foot">
+          <p class="pp-prestige"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4.5 8-11.8V5l-8-3-8 3v5.2C4 17.5 12 22 12 22Z"/><path d="m9 12 2 2 4-4"/></svg>Excellence, intégrité, sens du service&nbsp;: des valeurs transmises autant que des savoirs.</p>
+          <a href="ecole.html" class="btn btn-primary btn-sm">Découvrir l'École <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Bac+2 / Bac+3 -->
+      <div class="persona-panel" role="tabpanel" id="pp-bac2" aria-labelledby="tab-bac2" hidden>
+        <div class="pp-head">
+          <p class="pp-hook">Vos années d'études comptent&nbsp;: <em>entrez directement</em> en 3ᵉ année ou en Master.</p>
+          <p class="pp-sub">Le Programme Grande École vous est ouvert sans repartir de zéro.</p>
+        </div>
+        <div class="pp-grid">
+          <div class="pp-block">
+            <h3>Bac+2 (BTS, DUT, L2…)</h3>
+            <p><strong>Admission parallèle en L3</strong>, puis le cycle Master / MSc.</p>
+          </div>
+          <div class="pp-block">
+            <h3>Bac+3 (Licence)</h3>
+            <p><strong>Admission en M1</strong>&nbsp;: filières de spécialisation en 2 ans, mobilité et double diplôme possibles.</p>
+          </div>
+          <div class="pp-block">
+            <h3>Les démarches</h3>
+            <ol class="pp-steps"><li>Dossier</li><li>Écrits</li><li>Oral</li><li>Résultats</li></ol>
+          </div>
+        </div>
+        <div class="pp-foot">
+          <p class="pp-prestige"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m12 2 3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5l-5.3-5 7.2-.9L12 2Z"/></svg>Un diplôme de Grande École, reconnu par l'État, au bout de votre parcours.</p>
+          <a href="admissions.html#parallele-l3" class="btn btn-primary btn-sm">Voir les admissions parallèles <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Professionnel -->
+      <div class="persona-panel" role="tabpanel" id="pp-pro" aria-labelledby="tab-pro" hidden>
+        <div class="pp-head">
+          <p class="pp-hook">Accélérez votre carrière <em>sans la mettre en pause</em>.</p>
+          <p class="pp-sub">Programme Executive&nbsp;: Executive Master et MBA / MSc, pensés pour les cadres et dirigeants.</p>
+        </div>
+        <div class="pp-grid">
+          <div class="pp-block">
+            <h3>Ce qui est proposé</h3>
+            <ul class="pp-list">
+              <li>Cycle Executive Master</li>
+              <li>MBA / MSc en Finance, Management ou Stratégie</li>
+              <li>Format adapté à la vie professionnelle</li>
+            </ul>
+          </div>
+          <div class="pp-block">
+            <h3>Pour qui&nbsp;?</h3>
+            <p>Titulaires d'un <strong>Master</strong>, ou d'une <strong>Licence LMD</strong> avec une expérience professionnelle significative. Entreprises bienvenues.</p>
+          </div>
+          <div class="pp-block">
+            <h3>Les démarches</h3>
+            <ol class="pp-steps"><li>Dossier</li><li>Écrits</li><li>Oral</li><li>Résultats</li></ol>
+          </div>
+        </div>
+        <div class="pp-foot">
+          <p class="pp-prestige"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m12 2 3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5l-5.3-5 7.2-.9L12 2Z"/></svg>Rejoignez un cercle de professionnels exigeants, dans la première Grande École de management du pays.</p>
+          <a href="admissions.html#exec-master" class="btn btn-primary btn-sm">Voir l'admission Exec Master <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
       </div>
     </div>
   </section>
